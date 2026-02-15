@@ -1,0 +1,128 @@
+{
+    "info": {
+        "name": "Airline Booking System API",
+        "_postman_id": "123e4567-e89b-12d3-a456-426614174000",
+        "description": "Postman collection for Airline Booking System APIs including booking, check-in, baggage validation, and seat management.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Create Booking",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"user_id\": \"123\",\n  \"flight_id\": \"FL001\",\n  \"seat_number\": \"12A\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/bookings",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "bookings"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Booking",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{base_url}}/api/bookings/:id",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "bookings",
+                        ":id"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Check-in Passenger",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"booking_id\": \"BKG123\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/checkin",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "checkin"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Validate Baggage",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"booking_id\": \"BKG123\",\n  \"weight\": 18\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/baggage/validate",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "baggage",
+                        "validate"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "List Flights",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{base_url}}/api/flights",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "flights"
+                    ]
+                }
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8000"
+        }
+    ]
+}
